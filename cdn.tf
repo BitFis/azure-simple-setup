@@ -30,6 +30,7 @@ resource "azurerm_cdn_endpoint" "endpoint" {
   resource_group_name           = azurerm_resource_group.rg.name
   is_http_allowed               = true
   is_https_allowed              = true
+
   querystring_caching_behaviour = "IgnoreQueryString"
   is_compression_enabled        = true
   content_types_to_compress = [
@@ -76,8 +77,10 @@ resource "azurerm_cdn_endpoint" "endpoint" {
     "text/x-java-source",
   ]
 
+  // origin_host_header = azurerm_storage_account.storage_account.primary_blob_host
+  origin_host_header = azurerm_storage_account.storage_account.primary_web_host
   origin {
     name      = "origin1"
-    host_name = var.origin_url
+    host_name = azurerm_storage_account.storage_account.primary_web_host
   }
 }

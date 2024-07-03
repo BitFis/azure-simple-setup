@@ -52,3 +52,10 @@ Following some examples for location/region can be used:
 
 For the resource group name, you can use `rg_example_app`, or what ever feels comftable for itentification.
 
+## Access Deployed Webpage
+
+Open the webpage with security token,
+
+```
+tofu output -raw sas_url_query_string
+```
