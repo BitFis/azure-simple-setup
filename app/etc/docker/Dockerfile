@@ -31,4 +31,8 @@ COPY --from=builder $PYSETUP_PATH/dist/*.whl /tmp/
 RUN pip install /tmp/*.whl \
  && rm /tmp/*.whl
 
+EXPOSE 5000
+
 ENTRYPOINT ["quart", "run"]
+
+CMD ["-h", "0.0.0.0"]
