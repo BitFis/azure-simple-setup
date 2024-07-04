@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "app"
+version = "0.1.0"
+description = "Core application"
+authors = ["Lucien Zuercher <lucien@zuercher.io>"]
+license = "MIT"
+readme = "README.md"
+packages = [{ include = "app", from = "src" }]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+Quart = "^0.19.6"
+asyncio = "^3.4.3"
+loguru = "^0.7.2"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.2.2"
+pylint = "^3.2.5"
+poethepoet = "^0.27.0"
+
+[tool.poetry.scripts]
+test-app = "app:run"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
