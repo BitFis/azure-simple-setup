@@ -11,6 +11,11 @@ variable "location" {
   default     = "West Europe"
 }
 
+variable "prefix" {
+  description = "Provide prefix for resources"
+  type = string
+}
+
 variable "cdn_sku" {
   type        = string
   description = "CDN SKU names."
@@ -19,10 +24,4 @@ variable "cdn_sku" {
     condition     = contains(["Standard_Akamai", "Standard_Microsoft", "Standard_Verizon", "Premium_Verizon"], var.cdn_sku)
     error_message = "The cdn_sku must be one of the following: Standard_Akamai, Standard_Microsoft, Standard_Verizon, Premium_Verizon."
   }
-}
-
-variable "origin_url" {
-  type        = string
-  description = "Url of the origin."
-  default     = "www.example.com"
 }

@@ -9,7 +9,7 @@ resource "random_string" "aazurerm_cdn_profile_name" {
 }
 
 resource "azurerm_cdn_profile" "profile" {
-  name                = "tf-profile-${random_string.azurerm_cdn_endpoint_name.result}"
+  name                = "${var.prefix}-profile-${random_string.azurerm_cdn_endpoint_name.result}"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
   sku                 = var.cdn_sku
@@ -24,7 +24,7 @@ resource "random_string" "azurerm_cdn_endpoint_name" {
 }
 
 resource "azurerm_cdn_endpoint" "endpoint" {
-  name                          = "endpoint-${random_string.azurerm_cdn_endpoint_name.result}"
+  name                          = "${var.prefix}-${random_string.azurerm_cdn_endpoint_name.result}"
   profile_name                  = azurerm_cdn_profile.profile.name
   location                      = azurerm_resource_group.rg.location
   resource_group_name           = azurerm_resource_group.rg.name

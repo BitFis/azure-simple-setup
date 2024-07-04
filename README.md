@@ -38,6 +38,12 @@ Lets first initialize and get all dependencies for opentofu:
 tofu init
 ```
 
+Configure the app by copying and changing the values in `terraform.tfvars`
+
+```
+cp .\terraform.tfvars.example .\terraform.tfvars
+```
+
 Lets deploy the app
 
 ```

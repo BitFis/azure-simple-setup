@@ -21,6 +21,6 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "rg" {
-  name     = "tf-${var.resource_group_name}"
+  name     = "${var.prefix}-${var.resource_group_name}"
   location = var.location
 }
